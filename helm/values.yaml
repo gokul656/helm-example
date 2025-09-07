@@ -1,0 +1,13 @@
+postgres:
+  image: postgres:16
+  user: myuser
+  password: mypassword
+  database: mydb
+  port: 5432
+  timezone: UTC
+  replicas: 1
+
+springApp:
+  image: malware656/spring-app-pg:latest
+  port: 8080
+  replicas: 1
