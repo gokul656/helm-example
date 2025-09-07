@@ -10,4 +10,4 @@ postgres:
 springApp:
   image: malware656/spring-app-pg:latest
   port: 8080
-  replicas: 1
+  replicas: 2

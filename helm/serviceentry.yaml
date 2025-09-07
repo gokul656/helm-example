@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: allow-postgres
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: {{ .Release.Name }}
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
+spec:
+  hosts:
+    - "postgres.db-zone.svc.cluster.local"
+  ports:
+    - number: 5432
+      name: tcp-postgres
+      protocol: TCP
+  resolution: DNS
+  location: MESH_INTERNAL

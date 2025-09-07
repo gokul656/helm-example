@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: spring-app
   namespace: app-zone
+  annotations:
+    sidecar.istio.io/inject: "true"
 spec:
   replicas: {{ .Values.springApp.replicas }}
   selector:
